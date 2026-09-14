@@ -102,7 +102,25 @@ int main()
 
 void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, LinkedList *resultBackList)
 {
-	/* 여기에 코드를 작성하세요 */
+	int length = ll->size;
+	int half = length / 2;
+	ListNode *cur = ll->head;
+	int j = 0;
+	for (int i = 0; i < length; i++)
+	{
+		if (i < (length - half))
+		{
+			insertNode(resultFrontList, i, cur->item);
+			cur = cur->next;
+		}
+		else
+		{
+			insertNode(resultBackList, j, cur->item);
+			cur = cur->next;
+			j++;
+		}
+	}
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
