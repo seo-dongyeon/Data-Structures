@@ -104,7 +104,7 @@ void moveOddItemsToBack(LinkedList *ll)
 			//tail = findNode(ll, length -1);
 			tail->next = next;
 			tail = next;
-			tail->next->next = NULL;
+			tail->next = NULL;
 			cur->next = next2;
 		}
 		else
