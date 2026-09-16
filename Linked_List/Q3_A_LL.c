@@ -91,8 +91,9 @@ void moveOddItemsToBack(LinkedList *ll)
 	ListNode *cur = ll->head;
 	ListNode *next;
 	ListNode *next2;
-	ListNode *tail;
 	int length = ll->size;
+	ListNode *tail = findNode(ll, length -1);
+	
 
 	for (int i = 0; i < length-1; i++)
 	{
@@ -100,8 +101,9 @@ void moveOddItemsToBack(LinkedList *ll)
 		if ((next->item) % 2 != 0 && (next->next) != NULL)
 		{
 			next2 = next->next;
-			tail = findNode(ll, length -1);
+			//tail = findNode(ll, length -1);
 			tail->next = next;
+			tail = next;
 			tail->next->next = NULL;
 			cur->next = next2;
 		}
